@@ -16,7 +16,11 @@
 [STL 源码剖析](./C++/STL源码剖析.md)
 
 ### Python
-* 
+[Python Cookbook](./Python/PythonCookbook.md)
+
+[Effective Python](./Python/EffectivePython.md)
+
+[Fluent Python](./Python/FluentPython.md)
 
 ### Go
 [Go语言圣经](./Go/Go语言圣经.md)
