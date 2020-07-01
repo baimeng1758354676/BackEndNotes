@@ -3,7 +3,7 @@
 
 ## 语言
 ### C++
-[C++ Primer](./C++/C++Primer.md)
+[C++ Primer](C++/C++Primer/C++Primer.md)
 
 [Effective C++](./C++/EffectiveC++.md)
 
@@ -30,9 +30,9 @@
 [Go语言高级编程](./Go/Go语言高级编程.md)
 
 ## 算法
-[剑指offer](./DSA/剑指offer.md)
+[剑指offer](DSA/剑指Offer/剑指Offer.md)
 
-[LeetCode](./DSA/LeetCode.md)
+[LeetCode](DSA/LeetCode/LeetCode.md)
 
 ## 系统
 [深入理解计算机系统](./OS/深入理解计算机系统.md)
@@ -80,8 +80,10 @@
 
 
 ## 参考
+感谢以下的开源和分享：
+
 [互联网大厂的后端技术栈](https://zhuanlan.zhihu.com/p/103798636)
 
 [interview](https://github.com/huihut/interview#cc-development-direction)
 
-感谢以上的开源和分享。
+
