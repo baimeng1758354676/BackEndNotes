@@ -43,24 +43,25 @@
  * };
  */
 
-//// 解法1：递归
-//class Solution {
-//public:
-//    bool isSymmetric(TreeNode* root) {
-//        return isMirror(root, root);
-//    }
-//
-//    bool isMirror(TreeNode* p, TreeNode* q) {
-//        // 均为空
-//        if(!p && !q) return true;
-//
-//        // 其中有一个不为空，或者节点的值不等
-//        if((!p || !q) || (p->val != q->val)) return false;
-//
-//        // 联想镜像对称，左对应右
-//        return isMirror(p->left, q->right) && isMirror(p->right, q->left);
-//    }
-//};
+// 解法1：递归
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        return isMirror(root, root);
+    }
+
+    bool isMirror(TreeNode* p, TreeNode* q) {
+        // 均为空
+        if(!p && !q) return true;
+
+        // 其中有一个不为空，或者节点的值不等
+        if((!p || !q) || (p->val != q->val)) return false;
+
+        // 联想镜像对称，左对应右
+        return isMirror(p->left, q->right) && isMirror(p->right, q->left);
+    }
+};
+
 
 // 解法2：迭代
 class Solution {

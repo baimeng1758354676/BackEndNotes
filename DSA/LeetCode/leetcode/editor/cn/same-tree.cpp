@@ -49,18 +49,19 @@
  * };
  */
 
-//// 解法1：递归
-//class Solution {
-//public:
-//    bool isSameTree(TreeNode* p, TreeNode* q) {
-//        // 都为null
-//        if(p == NULL && q == NULL) return true;
-//        // 只有一个为null
-//        if(p == NULL || q == NULL) return false;
-//        if(p->val != q->val) return false;
-//        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
-//    }
-//};
+// 解法1：递归
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        // 都为null
+        if(p == NULL && q == NULL) return true;
+        // 只有一个为null
+        if(p == NULL || q == NULL) return false;
+        if(p->val != q->val) return false;
+        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+    }
+};
+
 
 // 解法2：迭代
 class Solution {
