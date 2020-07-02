@@ -102,7 +102,12 @@ public:
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-/** T(n) = 
- *  O(n) = 
- *  Summary: 
- */ 
+/**
+ * KnowledgePoint:
+ *
+ * T(n) =
+ *
+ * O(n) =
+ *
+ * Summary:
+ */
