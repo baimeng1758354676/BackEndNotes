@@ -36,10 +36,47 @@ class Solution {
 public:
     bool hasPathSum(TreeNode* root, int sum) {
         if(!root) return false;
+        if(!root->left && !root->right && sum == root->val) return true;
 
+        return hasPathSum(root->left, sum - root->val) || hasPathSum(root->right, sum - root->val);
     }
 };
 
+// 解法2：迭代。利用层序遍历，使用两个队列，一个队列保存节点，一个队列保存遍历过节点的总和。
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int sum) {
+        if(!root) return false;
+
+        queue<TreeNode*> q1;
+        queue<int> q2;
+        q1.push(root);
+        q2.push(root->val);
+
+        while(!q1.empty()) {
+            int size = q1.size();
+            for(int i = 0; i < size; ++i) {
+                TreeNode* temp = q1.front();
+                q1.pop();
+                int val = q2.front();
+                q2.pop();
+
+                if(!temp->left && !temp->right && sum == val) return true;
+
+                if(temp->left) {
+                    q1.push(temp->left);
+                    q2.push(val + temp->left->val);
+                }
+
+                if(temp->right) {
+                    q1.push(temp->right);
+                    q2.push(val + temp->right->val);
+                }
+            }
+        }
+        return false;
+    }
+};
 
 //leetcode submit region end(Prohibit modification and deletion)
 
