@@ -19,11 +19,35 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/binary-tree-paths.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/binary-tree-paths.cpp" />
+              <option name="questionId" value="257" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/convert-bst-to-greater-tree.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/convert-bst-to-greater-tree.cpp" />
+              <option name="questionId" value="538" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/convert-sorted-array-to-binary-search-tree.cpp">
           <value>
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/convert-sorted-array-to-binary-search-tree.cpp" />
               <option name="questionId" value="108" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/find-mode-in-binary-search-tree.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/find-mode-in-binary-search-tree.cpp" />
+              <option name="questionId" value="501" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -35,6 +59,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/lowest-common-ancestor-of-a-binary-search-tree.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/lowest-common-ancestor-of-a-binary-search-tree.cpp" />
+              <option name="questionId" value="235" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/maximum-depth-of-binary-tree.cpp">
           <value>
             <LeetcodeEditor>
@@ -43,11 +75,27 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/minimum-absolute-difference-in-bst.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/minimum-absolute-difference-in-bst.cpp" />
+              <option name="questionId" value="530" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/minimum-depth-of-binary-tree.cpp">
           <value>
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/minimum-depth-of-binary-tree.cpp" />
               <option name="questionId" value="111" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/path-sum-iii.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/path-sum-iii.cpp" />
+              <option name="questionId" value="437" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -64,6 +112,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/same-tree.cpp" />
               <option name="questionId" value="100" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/sum-of-left-leaves.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/sum-of-left-leaves.cpp" />
+              <option name="questionId" value="404" />
             </LeetcodeEditor>
           </value>
         </entry>
