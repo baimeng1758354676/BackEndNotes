@@ -46,12 +46,46 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+// 解法1：递归。利用二叉搜索树的特性：左节点的值<根节点的值<右节点的值。
+// 如果根节点的值大于这两个节点的最大值，说明其最近公共祖先节点在根节点的左子树。
+// 如果根节点的值小于这两个节点的最小值，说明其最近公共祖先节点在根节点的右子树。
+// 以此递归，当根节点的值为这两个节点的中间值，则其为最近公共祖先节点。
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        
+        if(!root) return NULL;
+
+        if(root->val > max(p->val, q->val)) {
+            return lowestCommonAncestor(root->left, p, q);
+        } else if (root->val < min(p->val, q->val)) {
+            return lowestCommonAncestor(root->right, p, q);
+        } else {
+            return root;
+        }
+
     }
 };
+
+// 解法2：迭代。由于一定会有最近公共祖先节点，所以可以一直循环寻找，找到则返回值即可。
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(!root) return NULL;
+
+        while(true) {
+            if(root->val > max(p->val, q->val)) {
+                root = root->left;
+            } else if (root->val < min(p->val, q->val)) {
+                root = root->right;
+            } else {
+                return root;
+            }
+        }
+
+    }
+};
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 
@@ -62,5 +96,6 @@ public:
  * 
  * O(n) = 
  * 
- * Summary: 
+ * Summary:
+ * 要充分利用题目的已知条件，二叉搜索树的特性：左节点的值<根节点的值<右节点的值
  */ 
