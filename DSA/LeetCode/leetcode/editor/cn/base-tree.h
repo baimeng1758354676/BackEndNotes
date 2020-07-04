@@ -6,24 +6,28 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <stack>
+#include <string>
 using namespace  std;
 
+// 空节点
+const int null = -9999;
+
 // definition for a binary tree node.
-struct TreeNode {
+class TreeNode {
+public:
     int val;
     TreeNode* left;
     TreeNode* right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    explicit TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
-
 
 class BaseTree {
 public:
-    TreeNode* root;
-
+    BaseTree();
     // create
-    TreeNode* createTreeFromLevelOrderVector(vector<int>& v);
-
+    TreeNode* createTreeFromLevelOrderVector(vector<int>& v, int size, int start=0);
+    TreeNode* createTreeFromLevelOrderVector(vector<int> & v);
 
     // traversal
     void levelOrderTraversal(TreeNode* root);

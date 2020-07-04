@@ -36,9 +36,7 @@
 // 👍 324 👎 0
 
 // pan: test header
-#include <iostream>
-#include "base-tree.h
-using namespace std;
+#include "base-tree.h"
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -72,7 +70,7 @@ public:
 };
 
 // 解法2：迭代。由于一定会有最近公共祖先节点，所以可以一直循环寻找，找到则返回值即可。
-class Solution {
+class SolutionA {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         if(!root) return NULL;
@@ -93,8 +91,20 @@ public:
 //leetcode submit region end(Prohibit modification and deletion)
 
 // pan: test main
-void main() {
+int main() {
+    // test case
+    vector<int> levelOrderVector{6,2,8,0,4,7,9,null,null,3,5};
 
+    BaseTree baseTree;
+
+    TreeNode* root = baseTree.createTreeFromLevelOrderVector(levelOrderVector, levelOrderVector.size());
+
+    Solution solution;
+    TreeNode* temp = solution.lowestCommonAncestor(root, root->right, root->right->right);
+
+    cout << temp->val <<endl;
+
+    return 0;
 }
 
 /** 

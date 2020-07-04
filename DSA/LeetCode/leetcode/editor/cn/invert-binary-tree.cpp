@@ -26,6 +26,8 @@
 // 谷歌：我们90％的工程师使用您编写的软件(Homebrew)，但是您却无法在面试时在白板上写出翻转二叉树这道题，这太糟糕了。 
 // Related Topics 树
 
+// pan: test header
+#include "base-tree.h"
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -38,19 +40,19 @@
  * };
  */
 
-//// 解法1：递归。
-//class Solution {
-//public:
-//    TreeNode* invertTree(TreeNode* root) {
-//        if (!root)
-//            return NULL
-//        TreeNode *tmp = root->left;
-//        root->left = invertTree(root->right);
-//        root->right = invertTree(tmp);
-//        return root;
-//    }
-//};
-//
+// 解法1：递归。
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if (!root)
+            return NULL;
+        TreeNode *tmp = root->left;
+        root->left = invertTree(root->right);
+        root->right = invertTree(tmp);
+        return root;
+    }
+};
+
 //// 解法2：迭代。这是一个不太好的解法，请直接看解法3。
 //class Solution {
 //public:
@@ -128,7 +130,7 @@
 //};
 
 // 解法3：迭代。使用层序遍历，直接交换左右子树即可。
-class Solution {
+class SolutionA {
 public:
     TreeNode* invertTree(TreeNode* root) {
         if (!root)
@@ -162,6 +164,23 @@ public:
 
 //leetcode submit region end(Prohibit modification and deletion)
 
+// pan: test main
+int main() {
+
+    // test case
+    vector<int> levelOrderVector{4,2,7,1,3,6,9};
+
+    BaseTree baseTree;
+
+    TreeNode* root = baseTree.createTreeFromLevelOrderVector(levelOrderVector, levelOrderVector.size());
+
+    Solution solution;
+    TreeNode* temp = solution.invertTree(root);
+
+    baseTree.levelOrderTraversal(temp);
+
+    return 0;
+}
 
 /** 
  * KnowledgePoint:

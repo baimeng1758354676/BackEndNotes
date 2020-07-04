@@ -28,6 +28,8 @@
 // Related Topics 树 
 // 👍 118 👎 0
 
+// pan: test header
+#include "base-tree.h"
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -47,6 +49,24 @@ public:
 };
 //leetcode submit region end(Prohibit modification and deletion)
 
+// pan: test main
+int main() {
+
+    // test case
+    vector<int> levelOrderVector{10,5,-3,3,2,null,11,3,-2,null,1};
+    int sum = 8;
+
+    BaseTree baseTree;
+
+    TreeNode* root = baseTree.createTreeFromLevelOrderVector(levelOrderVector, levelOrderVector.size());
+
+    Solution solution;
+    vector<int> temp = solution.findMode(root);
+    for(auto t: temp)
+        cout << t << " ";
+
+    return 0;
+}
 
 /** 
  * KnowledgePoint:
