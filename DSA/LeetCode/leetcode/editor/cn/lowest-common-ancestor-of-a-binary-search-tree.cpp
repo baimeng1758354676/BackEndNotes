@@ -35,6 +35,10 @@
 // Related Topics 树 
 // 👍 324 👎 0
 
+// pan: test header
+#include <iostream>
+#include "base-tree.h
+using namespace std;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -88,6 +92,10 @@ public:
 
 //leetcode submit region end(Prohibit modification and deletion)
 
+// pan: test main
+void main() {
+
+}
 
 /** 
  * KnowledgePoint:
