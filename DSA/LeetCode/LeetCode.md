@@ -19,9 +19,14 @@
 | ✔ | 257 | 二叉树的所有路径 | 树 | 简单 | [Cpp](./leetcode/editor/cn/binary-tree-paths.cpp) |
 | ✔ | 404 | 左叶子之和 | 树 | 简单 | [Cpp](./leetcode/editor/cn/sum-of-left-leaves.cpp) |
 | ✔ | 437 | 路径总和 III | 树 | 简单 | [Cpp](./leetcode/editor/cn/path-sum-iii.cpp) |
-|  | 501 | 二叉搜索树中的众数 | 树 | 简单 | [Cpp](./leetcode/editor/cn/find-mode-in-binary-search-tree.cpp) |
-|  | 530 | 二叉搜索树的最小绝对差 | 树 | 简单 | [Cpp](./leetcode/editor/cn/minimum-absolute-difference-in-bst.cpp) |
-|  | 538 | 把二叉搜索树转换为累加树 | 树 | 简单 | [Cpp](./leetcode/editor/cn/convert-bst-to-greater-tree.cpp) |
+| ✔ | 501 | 二叉搜索树中的众数 | 树 | 简单 | [Cpp](./leetcode/editor/cn/find-mode-in-binary-search-tree.cpp) |
+| ✔ | 530/783 | 二叉搜索树的最小绝对差 | 树 | 简单 | [Cpp](leetcode/editor/cn/minimum-absolute-difference-in-bst.cpp) |
+| ✔ | 538/1038 | 把二叉搜索树转换为累加树 | 树 | 简单 | [Cpp](./leetcode/editor/cn/convert-bst-to-greater-tree.cpp) |
+| ✔ | 543 | 二叉树的直径 | 树 | 简单 | [Cpp](./leetcode/editor/cn/diameter-of-binary-tree.cpp) |
+| ✔ | 563 | 二叉树的坡度 | 树 | 简单 | [Cpp](./leetcode/editor/cn/binary-tree-tilt.cpp) |
+|  | 572 | 另一个树的子树 | 树 | 简单 | [Cpp](./leetcode/editor/cn/subtree-of-another-tree.cpp) |
+|  | 606 | 根据二叉树创建字符串 | 树 | 简单 | [Cpp](./leetcode/editor/cn/construct-string-from-binary-tree.cpp) |
+|  | 617 | 合并二叉树 | 树 | 简单 | [Cpp](./leetcode/editor/cn/merge-two-binary-trees.cpp) |
 
 ### 归纳总结
 

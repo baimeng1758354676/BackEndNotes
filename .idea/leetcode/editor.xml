@@ -27,6 +27,22 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/binary-tree-tilt.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/binary-tree-tilt.cpp" />
+              <option name="questionId" value="563" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/construct-string-from-binary-tree.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/construct-string-from-binary-tree.cpp" />
+              <option name="questionId" value="606" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/convert-bst-to-greater-tree.cpp">
           <value>
             <LeetcodeEditor>
@@ -40,6 +56,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/convert-sorted-array-to-binary-search-tree.cpp" />
               <option name="questionId" value="108" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/diameter-of-binary-tree.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/diameter-of-binary-tree.cpp" />
+              <option name="questionId" value="543" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -75,6 +99,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/merge-two-binary-trees.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/merge-two-binary-trees.cpp" />
+              <option name="questionId" value="617" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/minimum-absolute-difference-in-bst.cpp">
           <value>
             <LeetcodeEditor>
@@ -88,6 +120,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/minimum-depth-of-binary-tree.cpp" />
               <option name="questionId" value="111" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/minimum-distance-between-bst-nodes.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/minimum-distance-between-bst-nodes.cpp" />
+              <option name="questionId" value="799" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -112,6 +152,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/same-tree.cpp" />
               <option name="questionId" value="100" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/subtree-of-another-tree.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/subtree-of-another-tree.cpp" />
+              <option name="questionId" value="572" />
             </LeetcodeEditor>
           </value>
         </entry>

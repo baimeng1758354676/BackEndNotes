@@ -1,37 +1,39 @@
-// LeetCode530 二叉搜索树的最小绝对差 minimum-absolute-difference-in-bst
+// LeetCode783 二叉搜索树节点最小距离 minimum-distance-between-bst-nodes
 
-//给你一棵所有节点为非负值的二叉搜索树，请你计算树中任意两节点的差的绝对值的最小值。 
+//给定一个二叉搜索树的根节点 root，返回树中任意两节点的差的最小值。 
 //
 // 
 //
 // 示例： 
 //
-// 输入：
+// 输入: root = [4,2,6,1,3,null,null]
+//输出: 1
+//解释:
+//注意，root是树节点对象(TreeNode object)，而不是数组。
 //
-//   1
-//    \
-//     3
-//    /
-//   2
+//给定的树 [4,2,6,1,3,null,null] 可表示为下图:
 //
-//输出：
-//1
+//          4
+//        /   \
+//      2      6
+//     / \    
+//    1   3  
 //
-//解释：
-//最小绝对差为 1，其中 2 和 1 的差的绝对值为 1（或者 2 和 3）。
-// 
-//
-// 
-//
-// 提示： 
+//最小的差值是 1, 它是节点1和节点2的差值, 也是节点3和节点2的差值。 
 //
 // 
-// 树中至少有 2 个节点。 
-// 本题与 783 https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/ 
+//
+// 注意： 
+//
+// 
+// 二叉树的大小范围在 2 到 100。 
+// 二叉树总是有效的，每个节点的值都是整数，且不重复。 
+// 本题与 530：https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/ 
 //相同 
 // 
-// Related Topics 树 
-// 👍 116 👎 0
+// Related Topics 树 递归 
+// 👍 65 👎 0
+
 
 // pan: test header
 #include "base-tree.h"
@@ -55,7 +57,7 @@ public:
     int absMinVal = INT_MAX;
     int absCurVal;
 
-    int getMinimumDifference(TreeNode* root) {
+    int minDiffInBST(TreeNode* root) {
         if(!root) return 0;
 
         helper(root);
@@ -81,8 +83,8 @@ public:
 
 };
 
-
 //leetcode submit region end(Prohibit modification and deletion)
+
 
 // pan: test main
 int main() {
@@ -95,7 +97,7 @@ int main() {
     TreeNode* root = baseTree.createTreeFromLevelOrderVector(levelOrderVector, levelOrderVector.size());
 
     Solution solution;
-    int temp = solution.getMinimumDifference(root);
+    int temp = solution.minDiffInBST(root);
     cout << temp << " ";
 
     return 0;
