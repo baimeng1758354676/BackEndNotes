@@ -41,7 +41,7 @@
 
 
 // pan: test header
-//  "base-tree.h"
+#include "base-tree.h"
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -53,12 +53,38 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+
 class Solution {
 public:
-    string tree2str(TreeNode* t) {
+    string res="";
+    string strL="";
+    string strR="";
+    string strLR="";
 
+    string tree2str(TreeNode* t) {
+        if(!t) return string("");
+
+        helper(t);
+
+        return res;
+    }
+
+    string helper(TreeNode* t) {
+        if(!t) return string("");
+
+        res = strL + strR;
+        strL = helper(t->left);
+        strR = helper(t->right);
+
+        if(strL + strR == "")
+            return to_string(t->val) + strL + strR;
+        else
+            return to_string(t->val) +  string("(") + strL + strR + string(")");
     }
 };
+
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 
@@ -66,16 +92,15 @@ public:
 int main() {
 
     // test case
-    vector<int> levelOrderVector{10,5,-3,3,2,null,11,3,-3,null,11,11};
+    vector<int> levelOrderVector{1,2,3,4};
 
     BaseTree baseTree;
 
     TreeNode* root = baseTree.createTreeFromLevelOrderVector(levelOrderVector, levelOrderVector.size());
 
     Solution solution;
-    vector<int> temp = solution.findMode(root);
-    for(auto t: temp)
-        cout << t << " ";
+    string temp = solution.tree2str(root);
+    cout << temp << " ";
 
     return 0;
 }

@@ -30,7 +30,7 @@
 [Go语言高级编程](./Go/Go语言高级编程.md)
 
 ## 算法
-[剑指offer](DSA/剑指Offer/剑指Offer.md)
+[剑指Offer](DSA/剑指Offer/剑指Offer.md)
 
 [LeetCode](DSA/LeetCode/LeetCode.md)
 

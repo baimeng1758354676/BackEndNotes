@@ -66,11 +66,27 @@
  * };
  */
 
-
+// 解法1：递归，DFS暴力匹配。DFS枚举s中的每一个节点，判断这个点的子树是否和t相等。
+// 判断这个点的子树是否和t相等：让两个指针一开始先指向该节点和t的根，然后进行"同步移动"两个指针来"同步遍历"这两棵树，判断对应位置是否相同。
 class Solution {
 public:
     bool isSubtree(TreeNode* s, TreeNode* t) {
-        
+        return dfs(s, t);
+    }
+
+    bool dfs(TreeNode* c, TreeNode* t) {
+        if(!c) return false;
+        return check(c, t) || dfs(c->left, t) || dfs(c->right, t);
+    }
+
+    bool check(TreeNode* c, TreeNode* t) {
+        if(!c && !t) return true;
+
+        // 节点均不为空，但是节点值不等
+        if(!(c && t && (c->val == t->val))) return false;
+
+        return check(c->left, t->left) && check(c->right, t->right);
+
     }
 };
 
@@ -81,8 +97,8 @@ public:
 int main() {
 
     // test case
-    vector<int> levelOrderVector1{3,4,5,1,2};
-    vector<int> levelOrderVector2{4,1,2};
+    vector<int> levelOrderVector1{3,4,5,1,2,null,null,null,null,0};
+    vector<int> levelOrderVector2{4,1,2,null,null,null,null};
 
     BaseTree baseTree;
 
