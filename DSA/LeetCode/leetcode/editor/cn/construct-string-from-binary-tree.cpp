@@ -54,36 +54,32 @@
  * };
  */
 
-
+// 解法1：递归。进行前序遍历时，按照不同情况添加额外的括号。分为四种情况：
+// 1. 当前节点有左右子树，则递归时需要在左右子树的结果都添加一层括号。
+// 2. 当前节点没有左右子树，则递归时不需要添加任何括号。
+// 3. 当前节点只有左子树，则递归时只给左子树的结果添加一层括号。
+// 4. 当前节点只有右子树，则先给添加一层空括号，表示左子树为空，然后递归时给右子树的结果添加一层括号
 class Solution {
 public:
-    string res="";
-    string strL="";
-    string strR="";
-    string strLR="";
 
     string tree2str(TreeNode* t) {
-        if(!t) return string("");
+        if(!t) return "";
 
-        helper(t);
+        // 情况2
+        if(!t->left && !t->right) return to_string(t->val) + "";
 
-        return res;
+        // 情况3
+        if(!t->right) return to_string(t->val) + "(" + tree2str(t->left) + ")";
+
+        // 情况4
+        if(!t->left) return to_string(t->val) + "()" + "(" + tree2str(t->right) + ")";
+
+        // 情况1
+        return to_string(t->val) + "(" + tree2str(t->left) + ")" + "(" + tree2str(t->right) + ")";
     }
 
-    string helper(TreeNode* t) {
-        if(!t) return string("");
 
-        res = strL + strR;
-        strL = helper(t->left);
-        strR = helper(t->right);
-
-        if(strL + strR == "")
-            return to_string(t->val) + strL + strR;
-        else
-            return to_string(t->val) +  string("(") + strL + strR + string(")");
-    }
 };
-
 
 //leetcode submit region end(Prohibit modification and deletion)
 

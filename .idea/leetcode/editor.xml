@@ -3,6 +3,14 @@
   <component name="LeetcodeEditor">
     <option name="projectConfig">
       <map>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/average-of-levels-in-binary-tree.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/average-of-levels-in-binary-tree.cpp" />
+              <option name="questionId" value="637" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/balanced-binary-tree.cpp">
           <value>
             <LeetcodeEditor>
@@ -176,6 +184,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/symmetric-tree.cpp" />
               <option name="questionId" value="101" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/two-sum-iv-input-is-a-bst.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/two-sum-iv-input-is-a-bst.cpp" />
+              <option name="questionId" value="653" />
             </LeetcodeEditor>
           </value>
         </entry>

@@ -25,8 +25,10 @@
 | ✔ | 543 | 二叉树的直径 | 树 | 简单 | [Cpp](./leetcode/editor/cn/diameter-of-binary-tree.cpp) |
 | ✔ | 563 | 二叉树的坡度 | 树 | 简单 | [Cpp](./leetcode/editor/cn/binary-tree-tilt.cpp) |
 | ✔ | 572 | 另一个树的子树 | 树 | 简单 | [Cpp](./leetcode/editor/cn/subtree-of-another-tree.cpp) |
-|  | 606 | 根据二叉树创建字符串 | 树 | 简单 | [Cpp](./leetcode/editor/cn/construct-string-from-binary-tree.cpp) |
-|  | 617 | 合并二叉树 | 树 | 简单 | [Cpp](./leetcode/editor/cn/merge-two-binary-trees.cpp) |
+| ✔ | 606 | 根据二叉树创建字符串 | 树 | 简单 | [Cpp](./leetcode/editor/cn/construct-string-from-binary-tree.cpp) |
+| ✔ | 617 | 合并二叉树 | 树 | 简单 | [Cpp](./leetcode/editor/cn/merge-two-binary-trees.cpp) |
+| ✔ | 637 | 二叉树的层平均值 | 树 | 简单 | [Cpp](./leetcode/editor/cn/average-of-levels-in-binary-tree.cpp) |
+| ✔ | 653 | 两数之和 IV - 输入 BST | 树 | 简单 | [Cpp](./leetcode/editor/cn/two-sum-iv-input-is-a-bst.cpp) |
 
 ### 归纳总结
 

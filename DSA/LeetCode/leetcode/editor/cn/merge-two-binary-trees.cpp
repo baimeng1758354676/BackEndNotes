@@ -30,7 +30,7 @@
 
 
 // pan: test header
-//  "base-tree.h"
+#include "base-tree.h"
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -42,12 +42,33 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+// 解法1：递归。对两棵树同时进行前序遍历，并将对应的节点进行合并。遍历时，分为三种情况：
+// 1. 如果两个树的当前节点均不为空，则将它们的节点值相加。
+// 2. 如果其中一棵树的当前节点为空，则返回另一棵树的节点作为结果节点。
+// 3. 如果两个树的当前节点均为空，则返回空
+
 class Solution {
 public:
+
     TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
+        // 情况3
+        if(!t1 && !t2) return nullptr;
+
+        // 情况2
+        if(!t1) return t2;
+        if(!t2) return t1;
+
+        // 情况1
+        t1->val += t2->val;
+        t1->left = mergeTrees(t1->left, t2->left);
+        t1->right = mergeTrees(t1->right, t2->right);
+
+        return t1;
 
     }
 };
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 
@@ -55,16 +76,17 @@ public:
 int main() {
 
     // test case
-    vector<int> levelOrderVector{10,5,-3,3,2,null,11,3,-3,null,11,11};
+    vector<int> levelOrderVector1{1,3,2,5};
+    vector<int> levelOrderVector2{2,1,3,null,4,null,7};
 
     BaseTree baseTree;
 
-    TreeNode* root = baseTree.createTreeFromLevelOrderVector(levelOrderVector, levelOrderVector.size());
-
+    TreeNode* root1 = baseTree.createTreeFromLevelOrderVector(levelOrderVector1, levelOrderVector1.size());
+    TreeNode* root2 = baseTree.createTreeFromLevelOrderVector(levelOrderVector2, levelOrderVector2.size());
     Solution solution;
-    vector<int> temp = solution.findMode(root);
-    for(auto t: temp)
-        cout << t << " ";
+    TreeNode* temp = solution.mergeTrees(root1, root2);
+
+    baseTree.levelOrderTraversal(temp);
 
     return 0;
 }
