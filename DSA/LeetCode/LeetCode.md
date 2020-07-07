@@ -29,6 +29,8 @@
 | ✔ | 617 | 合并二叉树 | 树 | 简单 | [Cpp](./leetcode/editor/cn/merge-two-binary-trees.cpp) |
 | ✔ | 637 | 二叉树的层平均值 | 树 | 简单 | [Cpp](./leetcode/editor/cn/average-of-levels-in-binary-tree.cpp) |
 | ✔ | 653 | 两数之和 IV - 输入 BST | 树 | 简单 | [Cpp](./leetcode/editor/cn/two-sum-iv-input-is-a-bst.cpp) |
+|  | 669 | 修剪二叉搜索树 | 树 | 简单 | [Cpp](./leetcode/editor/cn/trim-a-binary-search-tree.cpp) |
+|  | 671 | 二叉树中第二小的节点 | 树 | 简单 | [Cpp](./leetcode/editor/cn/second-minimum-node-in-a-binary-tree.cpp) |
 
 ### 归纳总结
 

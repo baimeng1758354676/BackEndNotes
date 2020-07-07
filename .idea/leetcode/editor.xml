@@ -3,6 +3,22 @@
   <component name="LeetcodeEditor">
     <option name="projectConfig">
       <map>
+        <entry key="$PROJECT_DIR$/../Back-End-Development-Notes/DSA/LeetCode/leetcode/editor/cn/second-minimum-node-in-a-binary-tree.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../Back-End-Development-Notes/DSA/LeetCode/leetcode/editor/cn/second-minimum-node-in-a-binary-tree.cpp" />
+              <option name="questionId" value="671" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Back-End-Development-Notes/DSA/LeetCode/leetcode/editor/cn/trim-a-binary-search-tree.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../Back-End-Development-Notes/DSA/LeetCode/leetcode/editor/cn/trim-a-binary-search-tree.cpp" />
+              <option name="questionId" value="669" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/average-of-levels-in-binary-tree.cpp">
           <value>
             <LeetcodeEditor>
@@ -163,6 +179,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/second-minimum-node-in-a-binary-tree.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/second-minimum-node-in-a-binary-tree.cpp" />
+              <option name="questionId" value="671" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/subtree-of-another-tree.cpp">
           <value>
             <LeetcodeEditor>
@@ -184,6 +208,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/symmetric-tree.cpp" />
               <option name="questionId" value="101" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/trim-a-binary-search-tree.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/DSA/LeetCode/leetcode/editor/cn/trim-a-binary-search-tree.cpp" />
+              <option name="questionId" value="669" />
             </LeetcodeEditor>
           </value>
         </entry>
