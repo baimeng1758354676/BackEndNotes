@@ -60,64 +60,63 @@
  * };
  */
 
-// 解法1：递归。前序遍历，分为以下情况：
-// 1. 当前节点值小于等于L，则说明其左子树不满足条件，将其左子树置为空。
-// 2. 当前节点值大于等于R，则说明其右子树不满足条件，将其右子树置为空。
-// 3. 当前节点左子树不为空且左子树的节点值小于L，则说明当前节点左子树不满足条件，将当前节点左子树置为当前节点左子树的右子树。
-// 4. 当前节点右子树不为空且右子树的节点值大于R，则说明当前节点右子树不满足条件，将当前节点右子树置为当前节点右子树的左子树。
-class Solution {
-public:
-    TreeNode* trimBST(TreeNode* root, int L, int R) {
-        if(!root) return nullptr;
-
-//        // 情况1
-//        if(root && root->val == L) root->left = nullptr;
-//        while(root && root->val < L) {
-//            root->left = nullptr;
-//            root = root->right;
-//        }
+//// 解法1：递归。前序遍历，分为以下情况：
+//// 1. 当前节点值小于等于L，则说明其左子树不满足条件，将其左子树置为空。
+//// 2. 当前节点值大于等于R，则说明其右子树不满足条件，将其右子树置为空。
+//// 3. 当前节点左子树不为空且左子树的节点值小于L，则说明当前节点左子树不满足条件，将当前节点左子树置为当前节点左子树的右子树。
+//// 4. 当前节点右子树不为空且右子树的节点值大于R，则说明当前节点右子树不满足条件，将当前节点右子树置为当前节点右子树的左子树。
+//class Solution {
+//public:
+//    TreeNode* trimBST(TreeNode* root, int L, int R) {
+//        if(!root) return nullptr;
 //
-//        // 情况2
+//        // 情况1和2
+//        if(root && root->val == L) root->left = nullptr;
 //        if(root && root->val == R) root->right = nullptr;
-//        while(root && root->val > R) {
-//            root->right = nullptr;
-//            root = root -> left;
+//        while(root) {
+//            // 更换根节点
+//            if (root->val < L) {
+//                root->left = nullptr;
+//                root = root->right;
+//
+//            } else if(root->val > R) {
+//                root->right = nullptr;
+//                root = root -> left;
+//            } else {
+//                break;
+//            }
+//
 //        }
 //
 //        // 情况3
-//        if(root->left && root->left->val < L) {
+//        while(root->left && root->left->val < L) {
 //            root->left = root->left->right;
 //        }
 //
 //        // 情况4
-//        if(root->right && root->right->val > R) {
+//        while(root->right && root->right->val > R) {
 //            root->right = root->right->left;
 //        }
-
+//
 //        trimBST(root->left, L, R);
 //        trimBST(root->right,L, R);
+//
+//        return root;
+//    }
+//};
 
-        while(root) {
-            if(root->val == L) {
-                root->left = nullptr;
-            }
-            if(root->val < L) {
-                root->left = nullptr;
-                root = root->right;
-            }
-            if(root->val == R) {
-                root->right = nullptr;
-            }
-            if(root->val > R) {
-                root->right = nullptr;
-                root = root -> left;
-            }
-            trimBST(root->left, L, R);
-            trimBST(root->right,L, R);
-        }
+//解法2：递归。更好理解，但是内存消耗比解法1高。
+class Solution {
+public:
+    TreeNode* trimBST(TreeNode* root, int L, int R) {
+        if (!root) return root;
 
-//        trimBST(root->left, L, R);
-//        trimBST(root->right,L, R);
+        if(root->val > R) return trimBST(root->left, L, R);
+
+        if(root->val < L) return trimBST(root->right, L, R);
+
+        root->left = trimBST(root->left, L, R);
+        root->right = trimBST(root->right, L, R);
 
         return root;
     }

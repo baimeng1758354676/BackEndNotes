@@ -33,7 +33,7 @@
 
 
 // pan: test header
-// include "base-tree.h"
+#include "base-tree.h"
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -58,16 +58,15 @@ public:
 int main() {
 
     // test case
-    vector<int> levelOrderVector{10,5,-3,3,2,null,11,3,-3,null,11,11};
+    vector<int> levelOrderVector{2,2,5,null,null,5,7};
 
     BaseTree baseTree;
 
     TreeNode* root = baseTree.createTreeFromLevelOrderVector(levelOrderVector, levelOrderVector.size());
 
     Solution solution;
-    vector<int> temp = solution.findMode(root);
-    for(auto t: temp)
-        cout << t << " ";
+    int temp = solution.findSecondMinimumValue(root);
+    cout << temp << " ";
 
     return 0;
 }

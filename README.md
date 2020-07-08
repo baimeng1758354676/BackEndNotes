@@ -5,15 +5,15 @@
 ### C++
 [C++ Primer](C++/C++Primer/C++Primer.md)
 
-[Effective C++](./C++/EffectiveC++.md)
+[Effective C++](C++/EffectiveC++/EffectiveC++.md)
 
-[More Effective C++](./C++/MoreEffectiveC++.md)
+[More Effective C++](C++/MoreEffectiveC++/MoreEffectiveC++.md)
 
-[深度探索 C++ 对象模型](./C++/深度探索C++对象模型.md)
+[深度探索 C++ 对象模型](C++/深度探索C++对象模型/深度探索C++对象模型.md)
 
-[深入理解 C++11](./C++/深入理解C++11.md)
+[深入理解 C++11](C++/深入理解C++11/深入理解C++11.md)
 
-[STL 源码剖析](./C++/STL源码剖析.md)
+[STL 源码剖析](C++/STL源码剖析/STL源码剖析.md)
 
 ### Python
 [Python Cookbook](./Python/PythonCookbook.md)
