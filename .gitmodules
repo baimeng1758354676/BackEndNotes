@@ -1,0 +1,3 @@
+[submodule "BackEndDSA"]
+	path = BackEndDSA
+	url = git@github.com:parzulpan/BackEndDSA.git
