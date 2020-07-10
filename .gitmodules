@@ -1,3 +1,30 @@
 [submodule "BackEndDSA"]
 	path = BackEndDSA
 	url = git@github.com:parzulpan/BackEndDSA.git
+[submodule "BackEndCpp"]
+	path = BackEndCpp
+	url = git@github.com:parzulpan/BackEndCpp.git
+[submodule "BackEndPython"]
+	path = BackEndPython
+	url = git@github.com:parzulpan/BackEndPython.git
+[submodule "BackEndGo"]
+	path = BackEndGo
+	url = git@github.com:parzulpan/BackEndGo.git
+[submodule "BackEndOS"]
+	path = BackEndOS
+	url = git@github.com:parzulpan/BackEndOS.git
+[submodule "BackEndNetwork"]
+	path = BackEndNetwork
+	url = git@github.com:parzulpan/BackEndNetwork.git
+[submodule "BackEndDesignPatterns"]
+	path = BackEndDesignPatterns
+	url = git@github.com:parzulpan/BackEndDesignPatterns.git
+[submodule "BackEndDB"]
+	path = BackEndDB
+	url = git@github.com:parzulpan/BackEndDB.git
+[submodule "BackEndMQ"]
+	path = BackEndMQ
+	url = git@github.com:parzulpan/BackEndMQ.git
+[submodule "BackEndInterview"]
+	path = BackEndInterview
+	url = git@github.com:parzulpan/BackEndInterview.git
