@@ -45,12 +45,37 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+// 解法1：直接遍历，得到每个节点的值，用集合保存节点值。
+// 查看第二小的值，如果它存在且第一小的值等于根节点的值，说明成功，输出第二小的值。否则输出-1。
 class Solution {
 public:
     int findSecondMinimumValue(TreeNode* root) {
+        if(!root) return -1;
+
+        queue<TreeNode*> q;
+        q.push(root);
+        set<int> s;
+        int root_val = root->val;
+        TreeNode* temp;
+
+        while(!q.empty()) {
+            temp = q.front();
+            q.pop();
+
+            if(temp) s.insert(temp->val);
+            if(temp->left) q.push(temp->left);
+            if(temp->right) q.push(temp->right);
+        }
+
+        if(s.size() < 2 || *(s.begin()) != root_val) return -1;
+
+        return *(++s.begin());
 
     }
 };
+
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 

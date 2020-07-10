@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 11)
 #aux_source_directory(. SRC_LIST)
 #add_library(LEETCODE ${SRC_LIST})
 
-add_executable(LEETCODE second-minimum-node-in-a-binary-tree.cpp base-tree.cpp)
+add_executable(LEETCODE search-in-a-binary-search-tree.cpp base-tree.cpp)
 
 message("pan: build with debug mode.")
 
