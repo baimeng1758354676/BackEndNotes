@@ -2,6 +2,15 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/DSA/back-end-notes_DSA" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/BackEndCpp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/BackEndDB" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/BackEndDSA" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/BackEndDesignPatterns" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/BackEndGo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/BackEndInterview" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/BackEndMQ" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/BackEndNetwork" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/BackEndOS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/BackEndPython" vcs="Git" />
   </component>
 </project>
