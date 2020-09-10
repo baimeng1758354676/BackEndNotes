@@ -1,12 +1,12 @@
 # 后端开发 V1.0
 
-* [简介](./README.md)
+* [简介](../README.md)
 
 * **Cpp**
   * **基础**
-    * [阅读前必看](./Cpp/C++Primer.md)
+    * [阅读前必看](../Cpp/C++Primer.md)
     * **第〇部分 开始**
-      * [第一章：开始](./Cpp/C++Primer/ch01/ch01.md)
+      * [第一章：开始](../Cpp/C++Primer/ch01/ch01.md)
     * **第I部分 C++基础**
       * [第二章：变量和基本类型](Cpp/C++Primer/ch02/ch02.md)
       * [第三章：字符串、向量和数组](/Cpp/C++Primer/ch03/ch03.md)
@@ -44,7 +44,7 @@
 * **Go**
 * **Python**
 * **算法**
-  * [数据结构](./DSA/DataStructure.md)
+  * [数据结构](../DSA/DataStructure.md)
   * [经典算法](DSA/ClassicalAlgorithm.md)
   * [算法设计](DSA/AlgorithmDesign.md)
   * [高频面试题](DSA/Interview.md)
@@ -52,14 +52,14 @@
 * **系统**
 * **网络**
   * **基础**
-    * [网络编程基础](./Network/网络编程基础.md)
+    * [网络编程基础](../Network/网络编程基础.md)
     * [网络变成进阶](Network/网络编程性能.md)
     * [网络编程性能](Network/网络编程性能.md)
     * [网络编程实战](Network/网络编程实战.md)
 * **数据库**
   * **MySQL**
     * **基础**
-      * [MySQL必知必会](./DB/MySQL/MySQL必知必会.md)
+      * [MySQL必知必会](../DB/MySQL/MySQL必知必会.md)
     * **进阶**
       * [高性能MySQL（一）](DB/MySQL/高性能MySQL（一）.md)
       * [高性能MySQL（二）](DB/MySQL/高性能MySQL（二）.md)
@@ -76,7 +76,7 @@
       * [高频面试题：数据库优化](DB/MySQL/高频面试题：数据库优化.md)
   * **Redis**
     * **基础**
-      * [Redis实战](./DB/Redis/Redis实战.md)
+      * [Redis实战](../DB/Redis/Redis实战.md)
     * **进阶**
     * **高频面试题**
   * **MangoDB**
@@ -85,7 +85,7 @@
     * **高频面试题**
 * **设计模式**
   * **基础**
-    * [阅读前必看](./DesignPatterns/README.md)
+    * [阅读前必看](../DesignPatterns/README.md)
     * [设计模式概述](DesignPatterns/Overview.md)
     * [UML简介](DesignPatterns/UML/UML.md)
     * [面向对象设计原则](DesignPatterns/OOP/OOP.md)
