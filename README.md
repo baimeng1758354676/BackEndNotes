@@ -4,9 +4,9 @@
 
 这是一份后端开发笔记总结与书籍资源分享。主要包括编程语言C++、Go、Python等，数据结构和算法，系统，网络，数据库MySQL、Redis、MangoDB等，设计模式，消息队列Kafka、RocketMQ等，搜索引擎Elasticsearch，系统设计，面试相关等。
 
-[在线阅读](https://docs.parzulpan.cn/#/notes/BackEndNotes/README)：GitHub，推荐外网速度好访问。
+[在线阅读](https://backendnote.parzulpan.cn)：GitHub，推荐外网速度好访问。
 
-[在线阅读](https://cn.docs.parzulpan.cn/#/notes/BackEndNotes/README)：Gitee，推荐外网速度差访问。
+[在线阅读](https://cn.backend.parzulpan.cn)：Gitee，推荐外网速度差访问。
 
 ## 书籍
 
