@@ -53,7 +53,8 @@
   * [《深入设计模式》](https://refactoringguru.cn/design-patterns) 提取码：在线网站
   * [《Head First 设计模式》](.) 提取码：待更新
 * **消息队列**
-  * 待更新
+  * [《Kafka权威指南》](.) 提取码：待更新
+  * [《Apache Kafka源码剖析》](.) 提取码：待更新
 * **搜索引擎**
   * 待更新
 * **系统设计**

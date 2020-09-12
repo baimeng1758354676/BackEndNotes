@@ -381,35 +381,9 @@ class Solution:
 
 ![题目描述](LeetCodeTop/3.des.png)
 
-### 解法一「双指针」
+### 解法一「滑动窗口」字符移入移出
 
-双指针技巧再分为两类，一类是「快慢指针」，一类是「左右指针」。前者解决主要解决链表中的问题，比如典型的判定链表中是否包含环；后者主要解决数组（或者字符串）中的问题，比如二分查找，子串问题。
-
-<!-- tabs:start -->
-
-#### **Cpp**
-
-```cpp
-class Solution {
-public:
-    int lengthOfLongestSubstring(string s) {
-        
-    }
-};
-```
-
-#### **Python**
-
-```python
-class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-```
-
-<!-- tabs:end -->
-
-### 解法二「滑动窗口」
-
-
+在 s 上滑动窗口，通过向右移动窗口的右端不断扩大窗口，当窗口内数据存在重复时，不满足条件，通过向右移动窗口的左端不断缩小窗口，然后更新结果。
 
 <!-- tabs:start -->
 
@@ -419,7 +393,28 @@ class Solution:
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        
+        unordered_map<char, int> window;
+        int left = 0, right = 0;
+        int s_len = s.size();
+        int res = 0;    // 记录结果
+
+        while (right < s_len) {
+            char c = s[right];
+            ++right;
+            ++window[c];    // 字符串 c 移入窗口，对应的个数增加
+
+            // 存在重复值，缩小窗口
+            while (window[c] > 1) {
+                char d = s[left];
+                ++left;
+                --window[d];    // 字符串 d 移出窗口，对应的个数减少
+            }
+
+            // 更新结果
+            res = max(res, right - left);
+        }
+
+        return res;
     }
 };
 ```
@@ -429,6 +424,22 @@ public:
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        window = collections.defaultdict(int)
+        left, right, _len, res = 0, 0, len(s), 0
+
+        while right < _len:
+            c = s[right]
+            right += 1
+            window[c] += 1
+
+            while window[c] > 1:
+                d = s[left]
+                left += 1
+                window[d] -=1
+
+            res = max(res, right - left)
+
+        return res
 ```
 
 <!-- tabs:end -->
