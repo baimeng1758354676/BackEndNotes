@@ -1,6 +1,6 @@
 # LeetCodeTop Python base header
 
-from collections import deque
+from collections import deque, defaultdict
 
 
 class TreeNode:

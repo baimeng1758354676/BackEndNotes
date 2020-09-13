@@ -26,8 +26,8 @@
 * [ ] [287.寻找重复数](#387.寻找重复数)
 * [ ] [344.反转字符串](#344.反转字符串)
 * [ ] [350.两个数组的交集II](#350.两个数组的交集II)
-* [ ] [438.找到字符串中所有字母异位词](#438.找到字符串中所有字母异位词)
-* [ ] [567.字符串的排列](#567.字符串的排列)
+* [x] [438.找到字符串中所有字母异位词](#438.找到字符串中所有字母异位词)
+* [x] [567.字符串的排列](#567.字符串的排列)
 
 ## 归类
 
@@ -444,6 +444,68 @@ class Solution:
 
 <!-- tabs:end -->
 
+## 11.盛最多水的容器
+
+![题目描述](LeetCodeTop/11.des.png)
+
+### 解法一「双指针」判断移动
+
+定义指针 left 指向最左边，right 指向最右边，当 left 对应的高度小于等于 right 对应的高度时，left 右移， 否则 right 左移。
+
+<!-- tabs:start -->
+
+#### **Cpp**
+
+```cpp
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int h_len = height.size();
+        int left = 0, right = h_len - 1;
+        int w, h, res = 0;
+
+        while (left < right) {
+            w = right - left;
+            if (height[left] <= height[right]) {
+                h = height[left];
+                ++left;
+            } else {
+                h = height[right];
+                --right;
+            }
+
+            res = max(w * h, res);
+        }
+
+        return res;
+    }
+};
+```
+
+#### **Python**
+
+```python
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        h_len = len(height)
+        left, right, res = 0, h_len - 1, 0
+
+        while left < right:
+            w = right - left
+            if height[left] <= height[right]:
+                h = height[left]
+                left += 1
+            else:
+                h = height[right]
+                right -= 1
+
+            res = max(w * h, res)
+
+        return res
+```
+
+<!-- tabs:end -->
+
 ## 76.最小覆盖子串
 
 ![题目描述](LeetCodeTop/76.des.png)
@@ -818,6 +880,226 @@ class Solution:
                     low = mid + 1
 
         return []
+```
+
+<!-- tabs:end -->
+
+## 438.找到字符串中所有字母异位词
+
+![题目描述](LeetCodeTop/438.des.png)
+
+### 解法一「滑动窗口」框架法
+
+扩大窗口，更新窗口数据；当窗口宽度大于 p 的长度时，缩小窗口，当条件满足更新结果，并更新窗口数据。
+
+<!-- tabs:start -->
+
+#### **Cpp**
+
+```cpp
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string t) {
+        unordered_map<char, int> need, window;
+        for (char c : t) need[c]++;
+
+        int left = 0, right = 0;
+        int valid = 0;  // 记录条件
+        int s_len = s.size(), t_len = t.size(), need_len = need.size();
+        vector<int> res; // 记录结果
+
+        while (right < s_len) {
+            char c = s[right];
+            right++;
+
+            // 进行窗口内数据的一系列更新
+            if (need.count(c)) {
+                window[c]++;
+                if (window[c] == need[c])
+                    valid++;
+            }
+
+            // 判断左侧窗口是否要收缩
+            while (right - left >= t_len) {
+                // 当窗口符合条件时，把起始索引加入 res
+                if (valid == need_len)
+                    res.push_back(left);
+
+                char d = s[left];
+                left++;
+
+                // 进行窗口内数据的一系列更新
+                if (need.count(d)) {
+                    if (window[d] == need[d])
+                        valid--;
+                    window[d]--;
+                }
+            }
+        }
+
+        return res;
+    }
+};
+```
+
+#### **Python**
+
+```python
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        need, window = collections.defaultdict(int), collections.defaultdict(int)
+        for c in p:
+            need[c] += 1
+
+        left, right, vaild = 0, 0, 0
+        s_len, p_len, need_len = len(s), len(p), len(need)
+        res = []
+
+        while right < s_len:
+            c = s[right]
+            right += 1
+
+            if c in list(need.keys()):
+                window[c] += 1
+                if window[c] == need[c]:
+                    vaild += 1
+
+                while right - left >= p_len:
+                    if vaild == need_len:
+                        res.append(left)
+
+                    d = s[left]
+                    left += 1
+
+                    if d in list(need.keys()):
+                        if window[d] == need[d]:
+                            vaild -= 1
+                        window[d] -= 1
+
+        return res
+```
+
+<!-- tabs:end -->
+
+### 解法二「滑动窗口」固定窗口宽度移动
+
+根据 p 的长度确定窗口宽度，然后窗口一直向右滑动即可，满足条件时更新数据。不过这种方法可能会超时。
+
+<!-- tabs:start -->
+
+#### **Cpp**
+
+```cpp
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int s_len = s.size(), p_len = p.size();
+        vector<int> res = {};
+        if (s_len < p_len) {
+            return res;
+        }
+        int left = 0, right = p_len;
+        map<char, int> ump;
+        for (char c : p) {
+            ++ump[c];
+        }
+
+        while (right <= s_len) {
+            if (checkAnagram(ump, s.substr(left, p_len))) {
+                res.push_back(left);
+            }
+            ++left;
+            ++right;
+        }
+
+        return res;
+    }
+
+    bool checkAnagram(map<char, int> &ump, const string &window) {
+        map<char, int> temp;
+        for (char c : window) {
+            ++temp[c];
+        }
+
+        if (ump == temp) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+};
+```
+
+#### **Python**
+
+```python
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+```
+
+<!-- tabs:end -->
+
+## 567.字符串的排列
+
+![题目描述](LeetCodeTop/567.des.png)
+
+### 解法一「滑动窗口」框架法
+
+扩大窗口，更新窗口数据；当窗口宽度大于 s1 的长度时，缩小窗口，当条件满足更新结果，并更新窗口数据。
+
+<!-- tabs:start -->
+
+#### **Cpp**
+
+```cpp
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        unordered_map<char, int> need, window;
+        for(char c : s1) {
+            ++need[c];
+        }
+
+        int left = 0, right = 0, vaild = 0;
+        int s1_len = s1.size(), s2_len = s2.size(), need_len = need.size();
+
+        while (right < s2_len) {
+            char c = s2[right];
+            ++right;
+
+            if (need.count(c)) {
+                ++window[c];
+                if (window[c] == need[c]) {
+                    ++vaild;
+                }
+            }
+
+            while (right - left >= s1_len) {
+                if (vaild == need_len) {
+                    return true;
+                }
+                char d = s2[left];
+                ++left;
+
+                if (need.count(d)) {
+                    if (window[d] == need[d]) {
+                        --vaild;
+                    }
+                    --window[d];
+                }
+            }
+        }
+
+        return false;
+    }
+};
+```
+
+#### **Python**
+
+```python
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
 ```
 
 <!-- tabs:end -->
