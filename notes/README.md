@@ -6,7 +6,7 @@
 
 [在线阅读](https://backendnote.parzulpan.cn)：GitHub，推荐外网速度好访问。
 
-[在线阅读](https://cn.backend.parzulpan.cn)：Gitee，推荐外网速度差访问。
+[在线阅读](https://backendnote-cn.parzulpan.cn)：Gitee，推荐外网速度差访问。
 
 ## 书籍
 

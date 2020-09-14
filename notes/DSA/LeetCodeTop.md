@@ -7,10 +7,10 @@
 * [x] [3.无重复字符的最长子串](#3.无重复字符的最长子串)
 * [ ] [4.寻找两个正序数组的中位数](#4.寻找两个正序数组的中位数)
 * [ ] [5.最长回文子串](#5.最长回文子串)
-* [ ] [11.盛最多水的容器](#11.盛最多水的容器)
-* [ ] [15.三数之和](#15.三数之和)
-* [ ] [19.删除链表的倒数第N个节点](#19.删除链表的倒数第N个节点)
-* [ ] [26.删除排序数组中的重复项](#26.删除排序数组中的重复项)
+* [x] [11.盛最多水的容器](#11.盛最多水的容器)
+* [x] [15.三数之和](#15.三数之和)
+* [x] [19.删除链表的倒数第N个节点](#19.删除链表的倒数第N个节点)
+* [x] [26.删除排序数组中的重复项](#26.删除排序数组中的重复项)
 * [ ] [28.实现strStr()](#28.实现strStr())
 * [ ] [42.接雨水](#42.接雨水)
 * [ ] [75.颜色分类](#75.颜色分类)
@@ -21,7 +21,7 @@
 * [x] [142.环形链表II](#142.环形链表II)
 * [x] [167.两数之和II-输入有序数组](#167.两数之和II-输入有序数组)
 * [ ] [234.回文链表](#234.回文链表)
-* [ ] [239.滑动窗口最大值](#239.滑动窗口最大值)
+* [x] [239.滑动窗口最大值](#239.滑动窗口最大值)
 * [ ] [283.移动零](#283.移动零)
 * [ ] [287.寻找重复数](#387.寻找重复数)
 * [ ] [344.反转字符串](#344.反转字符串)
@@ -506,6 +506,66 @@ class Solution:
 
 <!-- tabs:end -->
 
+## 15.三数之和
+
+### 解法一「双指针」
+
+<!-- tabs:start -->
+
+#### **Cpp**
+
+```cpp
+
+```
+
+#### **Python**
+
+```python
+
+```
+
+<!-- tabs:end -->
+
+## 19.删除链表的倒数第N个节点
+
+### 解法一「双指针」
+
+<!-- tabs:start -->
+
+#### **Cpp**
+
+```cpp
+
+```
+
+#### **Python**
+
+```python
+
+```
+
+<!-- tabs:end -->
+
+## 26.删除排序数组中的重复项
+
+### 解法一「双指针」
+
+<!-- tabs:start -->
+
+#### **Cpp**
+
+```cpp
+
+```
+
+#### **Python**
+
+```python
+
+```
+
+<!-- tabs:end -->
+
 ## 76.最小覆盖子串
 
 ![题目描述](LeetCodeTop/76.des.png)
@@ -880,6 +940,156 @@ class Solution:
                     low = mid + 1
 
         return []
+```
+
+<!-- tabs:end -->
+
+## 239.滑动窗口最大值
+
+![题目描述](LeetCodeTop/239.des.png)
+
+### 解法一「滑动窗口」设计单调队列
+
+题目要求在 `O(N)` 线性时间复杂度解决，所以难点在于如何在 `O(1)` 时间算出每个「窗口」中的最大值。
+
+在一堆数字中，如果知道最值，添加一个数，则很快的就能重新知道最值，但是如果减少一个数，则需要遍历一边才能重新知道最值。
+
+每个窗口前进的时候，要添加一个数同时减少一个数，所以想在 `O(1)` 的时间得出新的最值，就需要**单调队列**这种特殊的数据结构来辅助了。
+
+一个普通的队列：
+
+```cpp
+class Queue {
+    void push(int n);   // 或 enqueue，在队尾加入元素 n
+    void pop();         // 或 dequeue，删除队头元素
+}
+
+一个单调队列：
+
+```cpp
+class MonotonicQueue {
+    void push(int n);   // 在队尾添加元素 n
+    int max();          // 返回当前队列中的最大值
+    void pop(int n);    // 队头元素如果是 n，删除它
+}
+```
+
+那么如何实现这个单调队列呢？这时候就要借助双端队列（deque）这种数据结构了，它可以用链表作为底层结构。
+
+一个双端队列：
+
+```cpp
+class deque {
+    // 以下操作的时间复杂度都是 O(1)
+    void push_front(int n);     // 在队头插入元素 n
+    void push_back(int n);      // 在队尾插入元素 n
+    void pop_front();           // 在队头删除元素
+    void pop_back();            // 在队尾删除元素
+    int front();                // 返回队头元素
+    int back();                 // 返回队尾元素
+}
+```
+
+单调队列的 push() 依然在队尾添加元素，但是要把前面比新元素小的元素都删掉，这个就能维持一个单调递减的操作。max() 返回队头元素即可。pop() 删除队头为 n
+的元素。具体实现为：
+
+```cpp
+class MonotonicQueue {
+private:
+    deque<int> data;
+
+public:
+    void push(int n) {
+        while (!data.empty() && data.back() < n) {
+            data.pop_back();
+        }
+        data.push_back(n);
+    }
+
+    int max() {
+        return data.front();
+    }
+
+    void pop(int n) {
+        // 如果移除的值是最大值则更新最值
+        if(!data.empty() && data.front() == n) {
+            data.pop_front();
+        }
+    }
+};
+```
+
+<!-- tabs:start -->
+
+**Cpp：**
+
+```cpp
+// 单调队列
+class MonotonicQueue {
+private:
+    deque<int> data;
+
+public:
+    void push(int n) {
+        while (!data.empty() && data.back() < n) {
+            data.pop_back();
+        }
+        data.push_back(n);
+    }
+
+    int max() {
+        return data.front();
+    }
+
+    void pop(int n) {
+        // 如果移除的值是最大值则更新最值
+        if(!data.empty() && data.front() == n) {
+            data.pop_front();
+        }
+    }
+};
+
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        MonotonicQueue window;
+        vector<int> res;
+        int nums_len = nums.size();
+
+        for (int i = 0; i < nums_len; ++i) {
+            if (i < k - 1) {    // 先填满窗口的前 k - 1 个
+                window.push(nums[i]);
+            } else {    // 窗口向前滑动，填第 k 个，更新结果
+                window.push(nums[i]);
+                res.push_back(window.max());
+                window.pop(nums[i - k + 1]);
+            }
+        }
+
+        return res;
+    }
+};
+```
+
+**Python：**
+
+```python
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        dq = collections.deque()    # 存放值递减的元素
+        res = []
+
+        for i, num in enumerate(nums):
+            while dq and dq[-1] < num:    # 维持单调递减
+                dq.pop()
+            dq.append(num)
+
+            if i >= k - 1:
+                res.append(dq[0])
+                if dq and dq[0] == nums[i - k + 1]:     # 如果移除的值是最大值则更新最值
+                    dq.popleft()
+            
+        return res
 ```
 
 <!-- tabs:end -->
