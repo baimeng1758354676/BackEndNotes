@@ -963,6 +963,7 @@ class Queue {
     void push(int n);   // 或 enqueue，在队尾加入元素 n
     void pop();         // 或 dequeue，删除队头元素
 }
+```
 
 一个单调队列：
 
@@ -1021,7 +1022,7 @@ public:
 
 <!-- tabs:start -->
 
-**Cpp：**
+#### **Cpp**
 
 ```cpp
 // 单调队列
@@ -1071,7 +1072,7 @@ public:
 };
 ```
 
-**Python：**
+#### **Python**
 
 ```python
 class Solution:
@@ -1088,7 +1089,7 @@ class Solution:
                 res.append(dq[0])
                 if dq and dq[0] == nums[i - k + 1]:     # 如果移除的值是最大值则更新最值
                     dq.popleft()
-            
+
         return res
 ```
 
