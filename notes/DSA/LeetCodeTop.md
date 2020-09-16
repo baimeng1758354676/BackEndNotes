@@ -9,6 +9,7 @@
 * [ ] [5.最长回文子串](#5.最长回文子串)
 * [x] [11.盛最多水的容器](#11.盛最多水的容器)
 * [x] [15.三数之和](#15.三数之和)
+* [x] [18.四数之和](#18.四数之和)
 * [x] [19.删除链表的倒数第N个节点](#19.删除链表的倒数第N个节点)
 * [x] [26.删除排序数组中的重复项](#26.删除排序数组中的重复项)
 * [ ] [28.实现strStr()](#28.实现strStr())
@@ -39,9 +40,14 @@
 
 ### 双指针
 
+双指针技巧再分为两类，一类是「**快慢指针**」，一类是「**左右指针**」。前者解决主要解决链表中的问题，比如判定链表中是否包含环并判断环的位置、寻找链表中点、寻找链表的倒数第 k 个元素等典型场景；后者主要解决数组（或者字符串）中的问题，比如二分查找，子串问题，求和问题。
+
+相关题目：
+
 * [3.无重复字符的最长子串](#3.无重复字符的最长子串)
 * [11.盛最多水的容器](#11.盛最多水的容器)
 * [15.三数之和](#15.三数之和)
+* [18.四数之和](#18.四数之和)
 * [19.删除链表的倒数第N个节点](#19.删除链表的倒数第N个节点)
 * [26.删除排序数组中的重复项](#26.删除排序数组中的重复项)
 * [28.实现strStr()](#28.实现strStr())
@@ -160,8 +166,6 @@ class Solution:
 <!-- tabs:end -->
 
 ### 解法二「双指针」排序后双指针
-
-双指针技巧再分为两类，一类是「快慢指针」，一类是「左右指针」。前者解决主要解决链表中的问题，比如典型的判定链表中是否包含环；后者主要解决数组（或者字符串）中的问题，比如二分查找，子串问题。
 
 根据题意，每种输入只会对应一个答案。所以可以先排序，然后分别从前后遍历得到 x 和 y，如果两者之和大于 target，则尾指针向前走；如果两者之和大于 target，则头指针向后走；如果两者之和等于 target，则记录 i, j，然后在数组寻找元素的下标。
 
@@ -508,60 +512,327 @@ class Solution:
 
 ## 15.三数之和
 
-### 解法一「双指针」
+![题目描述](LeetCodeTop/15.des.png)
+
+### 解法一「双指针」排序后双指针
+
+先将数组升序排序，然后固定一个数 nums[i]，再使用左右指针分别指向数 nums[i]后面的两端，得到 nums[l] 和 nums[r]，此时计算这三个数之和 sum，分为如下情况：
+
+* 情况1：nums[i] 大于 0，则 sum 一定大于 0，结束循环。
+* 情况2：nums[i] 等于 nums[i - 1]，此时结果重复，固定下一个数跳过。
+* 情况3：sum 等于 0，且 nums[l] 等于 nums[l + 1]，此时结果重复，左指针右移跳过。
+* 情况4：sum 等于 0，且 nums[r] 等于 nums[r - 1]，此时结果重复，右指针左移跳过。
 
 <!-- tabs:start -->
 
 #### **Cpp**
 
 ```cpp
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int> > res;
+        int nums_len = nums.size();
+        if (nums_len < 3) {
+            return res;
+        }
+        sort(nums.begin(), nums.end());
+        int sum = 0, l = 0, r = 0;
 
+        for (int i = 0; i < nums_len; ++i) {
+            if (nums[i] > 0) {  // 情况1
+                break;
+            }
+            if (i > 0 && nums[i] == nums[i - 1]) {  // 情况2
+                continue;
+            }
+
+            l = i + 1;
+            r = nums_len - 1;
+
+            while (l < r) {
+                sum = nums[i] + nums[l] + nums[r];
+                if (sum == 0) {
+                    res.push_back(vector<int> {nums[i], nums[l], nums[r]});
+                    while (l < r && nums[l] == nums[l + 1]) {   // 情况3
+                        ++l;
+                    }
+                    while (l < r && nums[r] == nums[r -1]) {    // 情况4
+                        --r;
+                    }
+                    ++l;
+                    --r;
+                } else if (sum > 0) {
+                    --r;
+                } else {
+                    ++l;
+                }
+            }
+        }
+
+        return res;
+    }
+};
 ```
 
 #### **Python**
 
 ```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        nums.sort()
+        nums_len = len(nums)
+        _sum, l, r = 0, 0, 0
 
+        for i in range(nums_len):
+            l = i + 1
+            r = nums_len -1
+
+            if nums[i] > 0:
+                break
+
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+
+            while l < r:
+                _sum = nums[i] + nums[l] + nums[r]
+                if _sum == 0:
+                    res.append([nums[i], nums[l], nums[r]])
+                    while l < r and nums[l] == nums[l + 1]:
+                        l += 1
+                    while l < r and nums[r] == nums[r - 1]:
+                        r -= 1
+                    l += 1
+                    r -= 1
+                elif _sum > 0:
+                    r -= 1
+                else:
+                    l += 1
+
+        return res
+```
+
+<!-- tabs:end -->
+
+## 18.四数之和
+
+![题目描述](LeetCodeTop/18.des.png)
+
+### 解法一「双指针」基础上排序后双指针
+
+在 [15.三数之和](15.三数之和) 的基础上，增加一个 for 循环即可。需要注意的是，target可能为负数的情况。
+
+<!-- tabs:start -->
+
+#### **Cpp**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        vector<vector<int> > res;
+        int nums_len = nums.size();
+
+        if (nums_len < 3) {
+            return res;
+        }
+
+        int sum = 0, l = 0, r = 0;
+        sort(nums.begin(), nums.end());
+
+        for (int i = 0; i < nums_len; ++i) {
+            // if (nums[i] > target) {  // 注意：这里不能跳过，因为可能有负数 target
+            //     break;
+            // }
+
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                    continue;
+            }
+
+            for (int j = i + 1; j < nums_len; ++j) {
+                // if (nums[j] > target - nums[i]) {    // 注意：这里不能跳过，因为可能有负数 target
+                //     break;
+                // }
+
+                if (j > i + 1 && nums[j] == nums[j - 1]) {
+                    continue;
+                }
+                int l = j + 1;
+                int r = nums_len - 1;
+
+                while (l < r) {
+                    sum = nums[i] + nums[j] + nums[l] + nums[r];
+                    if (sum == target) {
+                        res.push_back(vector<int> {nums[i], nums[j], nums[l], nums[r]});
+                        while (l < r && nums[l] == nums[l + 1]) {
+                            ++l;
+                        }
+                        while (l < r && nums[r] == nums[r - 1]) {
+                            --r;
+                        }
+                        ++l;
+                        --r;
+                    } else if (sum < target) {
+                        ++l;
+                    } else {
+                        --r;
+                    }
+                }
+            }
+        }
+
+        return res;
+    }
+};
+```
+
+#### **Python**
+
+```python
+class Solution:
+    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
 ```
 
 <!-- tabs:end -->
 
 ## 19.删除链表的倒数第N个节点
 
-### 解法一「双指针」
+![题目描述](LeetCodeTop/19.des.png)
+
+### 解法一「双指针」利用假节点
+
+要删除链表的倒数第 N 个节点，必须先找到倒数第 N 个节点，可以先让快指针走 N 次，然后快慢指针在一起走。为了返回链表的头节点，可以利用一个假节点。
 
 <!-- tabs:start -->
 
 #### **Cpp**
 
 ```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode* fast = dummy;
+        ListNode* slow = dummy;
 
+        while (n > 0) {
+            fast = fast->next;
+            --n;
+        }
+
+        while (fast && fast->next) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+
+        slow->next = slow->next->next;
+
+        return dummy->next;
+    }
+};
 ```
 
 #### **Python**
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        dummy = ListNode(0)
+        dummy.next = head
+        fast = dummy
+        slow = dummy
+
+        while n > 0:
+            fast = fast.next
+            n -= 1
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next
+
+        slow.next = slow.next.nxet
+
+        return dummy.next
 ```
 
 <!-- tabs:end -->
 
 ## 26.删除排序数组中的重复项
 
-### 解法一「双指针」
+![题目描述](LeetCodeTop/26.des.png)
+
+### 解法一「双指针」按情况走
+
+开始时两个指针A、B分别指向数组开头，然后A、B所指的值相等，则B向前走，若不等，则 A 先向走并将此时 B 所指的值赋值给A所指的值，B也向前走。最后，返回 A 所在下标 + 1 即可。
 
 <!-- tabs:start -->
 
 #### **Cpp**
 
 ```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int nums_size = nums.size();
 
+        if (nums_size == 0) {
+            return 0;
+        }
+
+        int a = 0, b = 0;
+
+        while (b < nums_size) {
+            if (nums[a] == nums[b]) {
+                ++b;
+            } else {
+                ++a;
+                nums[a] = nums[b];
+                ++b;
+            }
+        }
+
+        return a + 1;
+    }
+};
 ```
 
 #### **Python**
 
 ```python
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        nums_len = len(nums)
 
+        if nums_len == 0:
+            return 0
+
+        a, b = 0, 0
+
+        while b < nums_len:
+            if nums[a] == nums[b]:
+                b += 1
+            else:
+                a += 1
+                nums[a] = nums[b]
+                b += 1
+
+        return a + 1
 ```
 
 <!-- tabs:end -->
@@ -588,7 +859,7 @@ public:
     string minWindow(string s, string t) {
         unordered_map<char, int> need, window;
         for (const char c : t) ++need[c];
-
+ 
         int s_len = s.size();
         int left = 0, right = 0;
         int key_cnt = 0;
@@ -688,8 +959,6 @@ class Solution:
 
 ### 解法一 [双指针] 快慢指针
 
-双指针技巧再分为两类，一类是「**快慢指针**」，一类是「**左右指针**」。前者解决主要解决链表中的问题，比如判定链表中是否包含环并判断环的位置、寻找链表中点、寻找链表的倒数第 k 个元素等典型场景；后者主要解决数组（或者字符串）中的问题，比如二分查找，子串问题。
-
 设定两个指针，一个跑得快，一个跑得慢。如果不含有环，跑得快的那个指针最终会遇到 null，说明链表不含环；如果含有环，快指针最终会超慢指针一圈，和慢指针相遇，说明链表含有环。需要注意的是，判断条件是快指针，因为它每次走的步数多。
 
 <!-- tabs:start -->
@@ -756,8 +1025,6 @@ class Solution:
 ![题目描述](LeetCodeTop/142.des.png)
 
 ### 解法一「双指针」指针变换
-
-双指针技巧再分为两类，一类是「快慢指针」，一类是「左右指针」。前者解决主要解决链表中的问题，比如判定链表中是否包含环并判断环的位置、寻找链表中点、寻找链表的倒数第 k 个元素等典型场景；后者主要解决数组（或者字符串）中的问题，比如二分查找，子串问题。
 
 那么如何找到环的起点呢？
 
@@ -841,8 +1108,6 @@ class Solution:
 ![题目描述](LeetCodeTop/167.des.png)
 
 ### 解法一「双指针」直接双指针
-
-双指针技巧再分为两类，一类是「快慢指针」，一类是「左右指针」。前者解决主要解决链表中的问题，比如判定链表中是否包含环并判断环的位置、寻找链表中点、寻找链表的倒数第 k 个元素等典型场景；后者主要解决数组（或者字符串）中的问题，比如二分查找，子串问题。
 
 同 [1.两数之和](#1.两数之和) 解法二类似，连排序都不用自己排了。
 
